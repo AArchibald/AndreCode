@@ -1,0 +1,78 @@
+---
+title: "LIS 4370 Mod. 4 Assignment"
+author: "Andre Archibald"
+date: "2/7/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r part 1.}
+Freq <- c(0.6, 0.3, 0.5, 0.5, 0.2, 0.5, 0.3, 0.4, 0.9, 0.2)
+bloodp <- c(103, 87, 32, 42, 59, 109, 78, 205, 135, 176)
+first <- c(1, 1, 1, 1, 0, 0, 0, 0, NA, 1)
+second <- c(0, 0, 1, 1, 0, 0, 1, 1, 1, 1)
+finaldecision <- c(0, 1, 0, 1, 0, 1, 0, 1, 1, 1)
+multiPatients <- data.frame(Freq, bloodp, first, second, finaldecision)
+multiPatients
+```
+
+
+
+```{r boxPlot of Frequency visits}
+boxplot(Freq ~ first, multiPatients,
+        main = "Visit Frequency First Results",
+        xlab = "First Evaluation by Doctor",
+        ylab = "Number of Visits",
+        names = c("good", "bad"))
+boxplot(Freq ~ second, multiPatients,
+        main = "Visit Frequency Second Results",
+        xlab = "Second Evaluation by Doctor",
+        ylab = "Number of Visits",
+        names = c("good", "bad"))
+boxplot(Freq ~ finaldecision, multiPatients,
+        main = "Urgent Care for patients",
+        xlab = "Final Evaluation",
+        ylab = "Number of Visits",
+        names = c("No", "Yes"))
+
+```
+
+```{r boxPlot for BloodPressure}
+boxplot(bloodp ~ first, multiPatients,
+        main = "Blood Pressure First Results",
+        xlab = "First Evaluation by Doctor",
+        ylab = "Blood Pressure",
+        names = c("good", "bad"))
+boxplot(bloodp ~ second, multiPatients,
+        main = "Blood Pressure Second Results",
+        xlab = "Second Evaluation by Doctor",
+        ylab = "Blood Pressure",
+        names = c("good", "bad"))
+boxplot(bloodp ~ finaldecision, multiPatients,
+        main = "Urgent Care for patients",
+        xlab = "Final Decision Results",
+        ylab = "Blood Pressure",
+        names = c("No", "Yes"))
+
+
+```
+
+```{r histogram}
+hist(bloodp,
+     main = "Range of Blood Pressure",
+     xlab = "Blood Pressure")
+hist(Freq,
+     main = "Range of Frequent Visits",
+     xlab = "Visit Frequency")
+hist(finaldecision,
+     main = "Final Evaluation Range",
+     xlab = "Final Decision")
+
+
+
+```
