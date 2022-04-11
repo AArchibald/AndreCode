@@ -1,0 +1,29 @@
+---
+title: "Module 12"
+author: "Andre Archibald"
+date: '2022-04-11'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Airquality
+This particular chunk takes a look at the data within the pre-installed data set called airquality.
+
+
+
+```{r }
+summary(airquality)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r airquality, echo=FALSE}
+plot(airquality)
+```
+
+This concludes the usage of R Markdown
